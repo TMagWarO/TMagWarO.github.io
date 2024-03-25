@@ -16,21 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="在Common Prime RSA里，$p-1, q-1$有一公共的大素因子：$p &#x3D; 2ga + 1, q &#x3D; 2gb + 1$，此时的$\lambda (N) &#x3D; 2gab$，$ed&#x3D;k*2gab + 1$，有$$ed \equiv 1 \ mod \ g \(e^{-1}\ mod \ \frac{N-1}{2}) - d \equiv 0 \ mod">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2024/03/25/hello-world/index.html">
+<meta property="og:title" content="TMagWarO">
+<meta property="og:url" content="http://example.com/2024/03/25/crypto_sign_in/index.html">
 <meta property="og:site_name" content="TMagWarO">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="在Common Prime RSA里，$p-1, q-1$有一公共的大素因子：$p &#x3D; 2ga + 1, q &#x3D; 2gb + 1$，此时的$\lambda (N) &#x3D; 2gab$，$ed&#x3D;k*2gab + 1$，有$$ed \equiv 1 \ mod \ g \(e^{-1}\ mod \ \frac{N-1}{2}) - d \equiv 0 \ mod">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-25T12:10:37.224Z">
-<meta property="article:modified_time" content="2024-03-25T08:39:09.657Z">
+<meta property="article:published_time" content="2024-03-25T12:26:11.376Z">
+<meta property="article:modified_time" content="2024-03-19T14:03:38.492Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Hello World - TMagWarO</title>
+  <title>TMagWarO</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hello World"></span>
+            <span id="subtitle" data-typed-text=""></span>
           
         </div>
 
@@ -207,7 +207,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-25 20:10" pubdate>
+        <time datetime="2024-03-25 20:26" pubdate>
           2024年3月25日 晚上
         </time>
       </span>
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          18 字
+          395 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          1 分钟
+          4 分钟
         
       </span>
     
@@ -267,25 +267,15 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Hello World</h1>
+            <h1 id="seo-header"></h1>
             
             
               <div class="markdown-body">
                 
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+                <p>在Common Prime RSA里，$p-1, q-1$有一公共的大素因子：$p &#x3D; 2ga + 1, q &#x3D; 2gb + 1$，此时的$\lambda (N) &#x3D; 2gab$，$ed&#x3D;k*2gab + 1$，有<br>$$<br>ed \equiv 1 \ mod \ g \<br>(e^{-1}\ mod \ \frac{N-1}{2}) - d \equiv 0 \ mod \ g<br>$$<br>另一方面，$\varphi (N) &#x3D; 4g^2ab$，及$\varphi (N) &#x3D; N-(p+q)+1$，可得<br>$$<br>N-(p+q-1)\equiv 0 \ mod \ g^2<br>$$<br>得到一个模$g$幂次的方程组<br>$$<br>\left{<br>\begin {array}{l}<br>    E-x_1\equiv 0 \ mod \ g \<br>    N-x_2\equiv 0 \ mod \ g^2<br>\end{array}<br>\right.<br>$$<br>之后求小根$(d, p+q-1)$即可</p>
+<p>shift的多项式为<br>$f_{(i_1,i_2)} &#x3D; (E-x_1)^{i_1} \cdot (N-x_2)^{i_2} \cdot (N-1)^{max{t−i_1−2i_2,0}}<br>$，$f$有用的条件是$\beta i_1 + \frac{1}{2}i_2 ≤ \gamma t$</p>
+<p>exp如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> itertools<br><span class="hljs-keyword">from</span> subprocess <span class="hljs-keyword">import</span> check_output<br><span class="hljs-keyword">from</span> re <span class="hljs-keyword">import</span> findall<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">flatter</span>(<span class="hljs-params">M</span>):<br>    z = <span class="hljs-string">&quot;[[&quot;</span> + <span class="hljs-string">&quot;]\n[&quot;</span>.join(<span class="hljs-string">&quot; &quot;</span>.join(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">str</span>, row)) <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> M) + <span class="hljs-string">&quot;]]&quot;</span><br>    ret = check_output([<span class="hljs-string">&quot;flatter&quot;</span>], <span class="hljs-built_in">input</span>=z.encode())<br>    <span class="hljs-keyword">return</span> matrix(M.nrows(), M.ncols(), <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>, findall(<span class="hljs-string">rb&quot;-?\d+&quot;</span>, ret)))<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">solve</span>(<span class="hljs-params">N, e, t=<span class="hljs-number">5</span></span>):<br>    gamma = <span class="hljs-number">0.42</span><br>    beta = <span class="hljs-number">0.25</span><br><br>    PR.&lt;x, y&gt; = ZZ[]<br>    E = inverse_mod(e, (N - <span class="hljs-number">1</span>) // <span class="hljs-number">2</span>)<br>    f1 = E - x<br>    f2 = N - y<br><br>    bounds = (<span class="hljs-number">2</span>^<span class="hljs-number">250</span>, <span class="hljs-number">2</span>^<span class="hljs-number">500</span>)<br>    U = N - <span class="hljs-number">1</span><br>    <br>    polynomials = <span class="hljs-type">Sequence</span>([], PR)<br>    <span class="hljs-keyword">for</span> i1, i2 <span class="hljs-keyword">in</span> itertools.product(<span class="hljs-built_in">range</span>(ceil(gamma * t / beta)), <span class="hljs-built_in">range</span>(ceil(gamma * t / <span class="hljs-number">0.5</span>))):<br>        <span class="hljs-keyword">if</span> beta * i1 + <span class="hljs-number">0.5</span> * i2 &lt;= gamma * t:<br>            polynomials.append(f1^i1 * f2^i2 * U^<span class="hljs-built_in">max</span>(<span class="hljs-number">0</span>, t - i1 - <span class="hljs-number">2</span> * i2))<br>    polynomials.sort()<br>    B, monomials = polynomials.coefficient_matrix()<br>    monomials = vector(monomials)<br><br>    factors = [monomial(*bounds) <span class="hljs-keyword">for</span> monomial <span class="hljs-keyword">in</span> monomials]<br>    <span class="hljs-keyword">for</span> i, factor <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(factors):<br>        B.rescale_col(i, factor)<br><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;dim(L): <span class="hljs-subst">&#123;<span class="hljs-built_in">len</span>(monomials)&#125;</span>&#x27;</span>)<br>    B = flatter(B)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;flatter done&#x27;</span>)<br><br>    B = B.change_ring(QQ)<br>    <span class="hljs-keyword">for</span> i, factor <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(factors):<br>        B.rescale_col(i, <span class="hljs-number">1</span> / factor)<br>    B *= monomials<br><br>    y = y.change_ring(QQ)<br>    PR.&lt;q&gt; = ZZ[]<br>    <span class="hljs-keyword">for</span> pol1, pol2 <span class="hljs-keyword">in</span> itertools.combinations(B, <span class="hljs-number">2</span>):<br>        rr = pol1.resultant(pol2, y)(q, q)<br>        solx = rr.roots()<br>        <span class="hljs-keyword">if</span> solx:<br>            <span class="hljs-keyword">return</span> solx[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]<br>                <br><br>N = <span class="hljs-number">0xbe9ccc83003bedf45421b58377b946f87dfd85be82124dc5d732070d77ef68e0231c3f34dc803a8984de0573db6d83ccea0bd53a885059a10cfa3764c658c4d42c5fa90ecad8573fff8f2c41e513278c59121e42ad83310fb22b4d20e7ada42c76f08891f38c92a1b1aac712bfa7d717a4c4802ed023f12c768972ca1b</span><br>e = <span class="hljs-number">0x5dc97ed7250e57ce6fac4f57885c0538b1ea540fbaca79730470b6b990f7e861adc4c5fee3acdcd9ae9a2834b606ddfae01ade33edfa96a47a0ffc0036a4497a84c38b7cdac20c38f</span><br>d = solve(N, e, t=<span class="hljs-number">10</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;d = <span class="hljs-subst">&#123;<span class="hljs-built_in">hex</span>(d)&#125;</span>&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;DubheCTF&#123;&#123;&#123;:x&#125;&#125;&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(ZZ(d) &amp; ZZ(<span class="hljs-number">2</span>^<span class="hljs-number">128</span> - <span class="hljs-number">1</span>)))<br><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">d = 0x2e2c8c829244854b305b75cce11f62eb896a5fef7abec06cd2e6256be4ba40b</span><br><span class="hljs-string">DubheCTF&#123;b896a5fef7abec06cd2e6256be4ba40b&#125;</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -302,8 +292,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hello World</div>
-      <div>http://example.com/2024/03/25/hello-world/</div>
+      <div></div>
+      <div>http://example.com/2024/03/25/crypto_sign_in/</div>
     </div>
     <div class="license-meta">
       
@@ -347,15 +337,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/25/test/" title="test">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">test</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2024/03/25/test/" title="test">
+                        <span class="hidden-mobile">test</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
