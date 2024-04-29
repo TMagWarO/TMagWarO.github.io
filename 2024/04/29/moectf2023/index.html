@@ -426,7 +426,7 @@
 <p>flag：</p>
 <figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs erlang-repl">moectf&#123;you_KNow_how_to_faCtorize_N_right?_9?WPIBung6?WPIBung6?WPIBund6?&#125;<br></code></pre></td></tr></table></figure>
 <h1 id="misc"><a href="#misc" class="headerlink" title="misc"></a><strong>misc</strong></h1><h3 id="Misc-入门指北"><a href="#Misc-入门指北" class="headerlink" title="Misc 入门指北"></a><strong>Misc</strong> <strong>入门指北</strong></h3><p>​    Base64解密</p>
-<p>flag：moectf{h@v3<em>fun</em>@t<em>m15c</em>!}</p>
+<p>flag：moectf{h@v3_fun_@t_m15c_!}</p>
 <h3 id="打不开的图片1"><a href="#打不开的图片1" class="headerlink" title="打不开的图片1"></a><strong>打不开的图片1</strong></h3><p>用010editor打开，发现是jpg格式文件，修复文件头，可以打开，有exif信息，16进制转换得flag</p>
 <p>Flag：moectf{XDU_i5_v3ry_6e@u2ifu1}</p>
 <h3 id="打不开的图片2"><a href="#打不开的图片2" class="headerlink" title="打不开的图片2"></a><strong>打不开的图片2</strong></h3><p>​    用010editor打开，发现ihdr，查看文件尾，为png文件尾，修复文件头，成功打开图片得到flag</p>
@@ -446,9 +446,9 @@
 <h3 id="base乐队"><a href="#base乐队" class="headerlink" title="base乐队"></a><strong>base乐队</strong></h3><p>​    依次用base32、base58、base32解密得到</p>
 <figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">bYeNQXYZXbXZQfW31FGzzD0m0FHQ9RR85FFQYMB9M</span><span class="hljs-operator">=</span>lmo2ku11z0uiz<span class="hljs-operator">=</span><br></code></pre></td></tr></table></figure>
 <p>发现中间有=，目前已知出现=均是在字符串尾部，猜测通过某种加密将=放在了中间，尝试暴力栅栏，得到flag</p>
-<p>flag：moectf{Th4<em>6@nd_1nc1ud45_F3nc4</em>@nd_b@s3}</p>
+<p>flag：moectf{Th4_6@nd_1nc1ud45_F3nc4_@nd_b@s3}</p>
 <h3 id="奇怪的压缩包"><a href="#奇怪的压缩包" class="headerlink" title="奇怪的压缩包"></a><strong>奇怪的压缩包</strong></h3><p>​    压缩包打开，发现有个文件夹为ppt，根据题目描述，改后缀，成功得到ppt文件，通过改字体颜色、遮挡、批注、解压ppt文档隐藏</p>
-<p>Flag：moectf{2ip123456<em>?</em> n0_i4_pp4x!}</p>
+<p>Flag：moectf{2ip123456_?_ n0_i4_pp4x!}</p>
 <h3 id="机位查询"><a href="#机位查询" class="headerlink" title="机位查询"></a><strong>机位查询</strong></h3><p>   三张图片的地点均在广西南宁，分别是南宁站、中山路美食街、华润大厦，查卫星地图可分析得到前两张图片拍摄地点为嘉士摩根国际、百盛步行街广场，最后一张始终分析不出拍摄的地点，仔细查看，发现有exif信息，有gps定位，查询，找到汇金宛，</p>
 <img src="/2024/04/29/moectf2023/clip_image030.png" srcset="/img/loading.gif" lazyload class title="img">
 <p>Flag：moectf{jiashi_baisheng_huijin}</p>
@@ -865,5 +865,20 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
