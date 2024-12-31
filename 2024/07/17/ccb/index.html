@@ -16,12 +16,12 @@
   <meta name="author" content="TMagWarO">
   <meta name="keywords" content="">
   
-    <meta name="description" content="funadmin漏洞1：&#x2F;app&#x2F;api&#x2F;controller&#x2F;v1&#x2F;Token.php存在一句话木马  漏洞2：任意文件读取app&#x2F;frontend&#x2F;controller&#x2F;Ajax.php存在文件读取 1frontend&#x2F;Ajax&#x2F;getfile?file&#x3D;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;flag  漏洞3：phtml文件上传后台用户头像抓包修改可上传phtml文件  漏洞4：后台任意文件上">
+    <meta name="description" content="funadmin漏洞1：&#x2F;app&#x2F;api&#x2F;controller&#x2F;v1&#x2F;Token.php存在一句话木马  漏洞2：任意文件读取app&#x2F;frontend&#x2F;controller&#x2F;Ajax.php存在文件读取 1&#x2F;frontend&#x2F;Ajax&#x2F;getfile?file&#x3D;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;flag  漏洞3：phtml文件上传后台用户头像抓包修改可上传phtml文件  漏洞4：后台任意文件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="长城杯 AWD">
 <meta property="og:url" content="http://tmagwaro.github.io/2024/07/17/ccb/index.html">
 <meta property="og:site_name" content="TMagWarO">
-<meta property="og:description" content="funadmin漏洞1：&#x2F;app&#x2F;api&#x2F;controller&#x2F;v1&#x2F;Token.php存在一句话木马  漏洞2：任意文件读取app&#x2F;frontend&#x2F;controller&#x2F;Ajax.php存在文件读取 1frontend&#x2F;Ajax&#x2F;getfile?file&#x3D;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;flag  漏洞3：phtml文件上传后台用户头像抓包修改可上传phtml文件  漏洞4：后台任意文件上">
+<meta property="og:description" content="funadmin漏洞1：&#x2F;app&#x2F;api&#x2F;controller&#x2F;v1&#x2F;Token.php存在一句话木马  漏洞2：任意文件读取app&#x2F;frontend&#x2F;controller&#x2F;Ajax.php存在文件读取 1&#x2F;frontend&#x2F;Ajax&#x2F;getfile?file&#x3D;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;flag  漏洞3：phtml文件上传后台用户头像抓包修改可上传phtml文件  漏洞4：后台任意文件">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240917161604032.png">
 <meta property="og:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240917161615348.png">
@@ -38,7 +38,7 @@
 <meta property="og:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240909175604238.png">
 <meta property="og:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240909175108987.png">
 <meta property="article:published_time" content="2024-07-17T08:17:57.000Z">
-<meta property="article:modified_time" content="2024-09-17T08:24:28.072Z">
+<meta property="article:modified_time" content="2024-12-06T03:00:04.433Z">
 <meta property="article:author" content="TMagWarO">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://tmagwaro.github.io/2024/07/17/ccb/image-20240917161604032.png">
@@ -263,7 +263,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          264 字
+          265 字
         
       </span>
     
@@ -327,7 +327,7 @@
                 <h1 id="funadmin"><a href="#funadmin" class="headerlink" title="funadmin"></a>funadmin</h1><h2 id="漏洞1："><a href="#漏洞1：" class="headerlink" title="漏洞1："></a>漏洞1：</h2><p>/app/api/controller/v1/Token.php存在一句话木马</p>
 <p><img src="/2024/07/17/ccb/image-20240917161604032.png" srcset="/img/loading.gif" lazyload alt="image-20240917161604032"></p>
 <h2 id="漏洞2：任意文件读取"><a href="#漏洞2：任意文件读取" class="headerlink" title="漏洞2：任意文件读取"></a>漏洞2：任意文件读取</h2><p>app/frontend/controller/Ajax.php存在文件读取</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle">frontend<span class="hljs-regexp">/Ajax/g</span>etfile?<span class="hljs-keyword">file</span>=..<span class="hljs-regexp">/../</span>..<span class="hljs-regexp">/../</span>..<span class="hljs-regexp">/../</span>flag<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">/frontend/</span>Ajax<span class="hljs-regexp">/getfile?file=../</span>..<span class="hljs-regexp">/../</span>..<span class="hljs-regexp">/../</span>../flag<br></code></pre></td></tr></table></figure>
 <p><img src="/2024/07/17/ccb/image-20240917161615348.png" srcset="/img/loading.gif" lazyload alt="image-20240917161615348"></p>
 <h2 id="漏洞3：phtml文件上传"><a href="#漏洞3：phtml文件上传" class="headerlink" title="漏洞3：phtml文件上传"></a>漏洞3：phtml文件上传</h2><p>后台用户头像抓包修改可上传phtml文件</p>
 <p><img src="/2024/07/17/ccb/image-20240917161625669.png" srcset="/img/loading.gif" lazyload alt="image-20240917161625669"></p>
@@ -416,9 +416,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07/29/gaatitrack/" title="gaatitrack">
+                      <a href="/2024/07/29/gaatitrack/" title="CISCN华中2024AWD WP">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">gaatitrack</span>
+                        <span class="hidden-mobile">CISCN华中2024AWD WP</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
